@@ -1,0 +1,84 @@
+/* Write your CSS here */
+.balance-details-card {
+  background-color: #ecfccb;
+  border-radius: 15px;
+  border: 1px solid #84cc16;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 25px;
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .balance-details-card {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+}
+.income-details-card {
+  background-color: #cffafe;
+  border-radius: 15px;
+  border: 1px solid #06b6d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 25px;
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .income-details-card {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+}
+.expenses-details-card {
+  background-color: #ede9fe;
+  border-radius: 15px;
+  border: 1px solid #7c3aed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  gap: 25px;
+  flex: 1;
+}
+@media screen and (max-width: 767px) {
+  .expenses-details-card {
+    width: 100%;
+    justify-content: flex-start;
+    padding-left: 40px;
+  }
+}
+.money-type-img {
+  width: 55px;
+}
+@media screen and (max-width: 767px) {
+  .money-type-img {
+    width: 65px;
+  }
+}
+.money-type {
+  color: #334155;
+  font-size: 13px;
+  font-weight: 400;
+}
+@media screen and (max-width: 767px) {
+  .money-type {
+    font-size: 15px;
+  }
+}
+.amount {
+  color: #1e293b;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 0;
+}
+@media screen and (max-width: 767px) {
+  .amount {
+    font-size: 20px;
+  }
+}
