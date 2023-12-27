@@ -34,7 +34,7 @@ class MoneyManager extends Component {
       const newTransactionObj = {
         id: uuidv4(),
         title: titleInput,
-        amount: amountInput,
+        amount: parseInt(amountInput),
         type: typeInput.displayText,
       }
 
@@ -74,8 +74,8 @@ class MoneyManager extends Component {
     const {transactionsHistory} = this.state
     let amount = 0
     transactionsHistory.forEach(eachItem => {
-      if (eachItem.type === 'Income') {
-        amount += parseInt(eachItem.amount)
+      if (eachItem.type === transactionTypeOptions[0].displayText) {
+        amount += eachItem.amount
       }
     })
     return amount
@@ -85,26 +85,15 @@ class MoneyManager extends Component {
     const {transactionsHistory} = this.state
     let amount = 0
     transactionsHistory.forEach(eachItem => {
-      if (eachItem.type === 'Expenses') {
-        amount += parseInt(eachItem.amount)
+      if (eachItem.type === transactionTypeOptions[1].displayText) {
+        amount += eachItem.amount
       }
     })
     return amount
   }
 
-  getTotalBalance = () => {
-    const {transactionsHistory} = this.state
-    let balanceAmount = 0
-    let incomeAmount = 0
-    let expensesAmount = 0
-    transactionsHistory.forEach(eachItem => {
-      if (eachItem.type === 'Income') {
-        incomeAmount += parseInt(eachItem.amount)
-      } else {
-        expensesAmount += parseInt(eachItem.amount)
-      }
-    })
-    balanceAmount = incomeAmount - expensesAmount
+  getTotalBalance = (totalIncome, totalExpenses) => {
+    const balanceAmount = totalIncome - totalExpenses
 
     return balanceAmount
   }
@@ -113,7 +102,7 @@ class MoneyManager extends Component {
     const {transactionsHistory, titleInput, amountInput, optionId} = this.state
     const totalIncome = this.getTotalIncome()
     const totalExpenses = this.getTotalExpenses()
-    const totalAmount = this.getTotalBalance()
+    const totalAmount = this.getTotalBalance(totalIncome, totalExpenses)
     console.log(optionId)
     return (
       <div className="main">
